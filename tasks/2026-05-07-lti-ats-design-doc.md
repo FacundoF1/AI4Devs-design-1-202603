@@ -28,18 +28,18 @@ tags: [design, documentation, product, architecture, ats, lean-canvas, c4, merma
   2. Colaboración en tiempo real reclutador ↔ hiring manager (comentarios, ratings, decisiones compartidas, presencia).
   3. Automatizaciones (workflows, triggers de pipeline, comunicaciones, scheduling).
   4. Asistencia de IA (resumen de CVs, matching candidato↔puesto, generación de job descriptions, redacción de feedback, detección de sesgo).
-- **Entregable final:** un único `.md` (`LTI-FF.md`) dentro de carpeta `lti/LTI-FF/` + `prompts.md` con los prompts utilizados.
+- **Entregable final:** un único `.md` en `lti/LTI-FF/LTI-FF.md` (los prompts se incluyen como sección "Anexo: prompts" dentro del mismo archivo, conforme al brief que exige un único documento).
 - **Restricciones técnicas:**
   - Mermaid como lenguaje de diagramas (renderiza en GitHub).
   - Idioma: español por defecto (US escrita en español); términos técnicos en inglés cuando sea idiomático (e.g., "pipeline", "stage", "sourcing", "kanban", "webhook").
-  - Ubicación exacta: `lti/LTI-FF/LTI-FF.md` y `lti/LTI-FF/prompts.md` (verificar que la consigna del ReadMe pida la subcarpeta `lti/`; si no, ubicar en raíz `LTI-FF/`).
+  - Ubicación canónica: `lti/LTI-FF/LTI-FF.md` (única ruta válida; el brief `001-US.md` exige la carpeta `lti/`).
 - **Estado actual:** solo se entrega la **estructura de tracking** y un **outline** del documento final. El contenido completo se redacta en una iteración posterior.
 
 ## Instructions
 
 ### Fase 0 — Preparación (15 min)
-- [ ] Confirmar ruta destino: `lti/LTI-FF/` vs `LTI-FF/` raíz (releer `ReadMe.md` y `001-US.md`).
-- [ ] Crear carpeta `LTI-FF/` con archivos vacíos `LTI-FF.md` y `prompts.md`.
+- [ ] Confirmar ruta destino canónica: `lti/LTI-FF/` (según `001-US.md`).
+- [ ] Crear carpeta `lti/LTI-FF/` con archivo vacío `LTI-FF.md`.
 - [ ] Verificar que Mermaid renderiza en GitHub para `C4Container` (fallback: `flowchart` con estilo C4 si el renderer falla).
 
 ### Fase 1 — Investigación y propuesta de valor (1-1.5h)
@@ -82,12 +82,12 @@ Seleccionar 3 casos que cubran los pilares diferenciadores:
 - [ ] Mostrar relaciones e integraciones con DB principal, vector DB, queue, LLM provider.
 - [ ] **Acceptance:** ambos niveles renderizables; el zoom Component justifica por qué se eligió ese servicio.
 
-### Fase 7 — Ensamblaje y prompts.md (45 min)
+### Fase 7 — Ensamblaje y anexo de prompts (45 min)
 - [ ] Ensamblar `LTI-FF.md` siguiendo el outline (ver abajo).
 - [ ] Tabla de contenidos al inicio con anclas.
-- [ ] Redactar `prompts.md` con: prompt de contexto inicial, prompt por sección, modelo usado (Claude Opus 4.7), iteraciones notables.
+- [ ] Añadir sección "Anexo: prompts" dentro de `LTI-FF.md` con: prompt de contexto inicial, prompt por sección, modelo usado (Claude Opus 4.7), iteraciones notables.
 - [ ] Revisar render Mermaid en GitHub (push a rama y verificar visualmente).
-- [ ] **Acceptance:** ambos archivos commiteados, diagramas renderizan, sin secciones TODO.
+- [ ] **Acceptance:** archivo único commiteado, diagramas renderizan, sin secciones TODO.
 
 ## Tone & Style
 - **Idioma:** español neutro profesional; términos técnicos en inglés sin traducir cuando es idiomático.
@@ -99,10 +99,10 @@ Seleccionar 3 casos que cubran los pilares diferenciadores:
 ## Expected Output
 
 ### Estructura de archivos
-```
-LTI-FF/
-├── LTI-FF.md       # documento principal (todas las secciones)
-└── prompts.md      # prompts utilizados con Claude
+```text
+lti/
+└── LTI-FF/
+    └── LTI-FF.md   # documento único: todas las secciones + anexo de prompts
 ```
 
 ### Outline propuesto de `LTI-FF.md`
@@ -122,6 +122,7 @@ LTI-FF/
 6. Diseño de alto nivel
 7. Diagrama C4 — zoom al AI Screening Service
 8. Anexos / decisiones abiertas
+9. Anexo: prompts utilizados
 
 ## 1. Descripción y propuesta de valor
    - Qué es LTI (1 párrafo)
@@ -156,17 +157,22 @@ LTI-FF/
 ## 8. Anexos
    - Decisiones abiertas / supuestos
    - Roadmap inicial sugerido
+
+## 9. Anexo: prompts utilizados
+   - Prompt de contexto inicial
+   - Prompts por sección
+   - Modelo usado (Claude Opus 4.7) e iteraciones notables
 ```
 
 ### Checklist de aceptación final
-- [ ] `LTI-FF/LTI-FF.md` existe, > 600 líneas estimadas, todas las secciones del outline.
+- [ ] `lti/LTI-FF/LTI-FF.md` existe, > 600 líneas estimadas, todas las secciones del outline.
 - [ ] Lean Canvas con 9 bloques completos.
 - [ ] 3 casos de uso con diagrama Mermaid renderizable cada uno.
 - [ ] Modelo de datos: ≥10 entidades, atributos tipados, ER diagrama.
 - [ ] Diseño alto nivel: prosa + diagrama coherentes.
 - [ ] C4: 2 niveles (Container + Component), componente elegido y justificado.
 - [ ] Diagramas renderizan en GitHub (verificación visual post-push).
-- [ ] `prompts.md` con prompts trazables por sección.
+- [ ] Sección "Anexo: prompts" dentro de `LTI-FF.md` con prompts trazables por sección.
 - [ ] Sin TODOs, sin placeholders, sin Lorem.
 - [ ] Spell-check español + términos técnicos consistentes.
 
